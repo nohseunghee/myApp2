@@ -10,6 +10,7 @@ public class KaupServiceImpl implements KaupService {
     public String getKaup(double weight, double height) {
         String result = "";
 
+
         //공식 :: 몸무게를 키의 제곱으로 나눈후, 10000을 곱한 인덱스 값
         int idx = (int)( (weight / (height * height)) * 10000)  ;
 
@@ -28,6 +29,7 @@ public class KaupServiceImpl implements KaupService {
         } else {//소모증
             result = "소모증";
         }
+
         return result;
     }
 }
