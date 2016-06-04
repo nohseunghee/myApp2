@@ -15,7 +15,7 @@
 
         </activity>
         <activity
-            android:name=".Kaup.testKaupActivity"
+            android:name=".Kaup.KaupActivity"
             android:label="@string/title_activity_kaup"
             android:theme="@style/AppTheme.NoActionBar">
 

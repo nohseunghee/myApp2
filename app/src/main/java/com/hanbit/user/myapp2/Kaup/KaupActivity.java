@@ -11,7 +11,7 @@ import android.widget.Toast;
 
 import com.hanbit.user.myapp2.R;
 
-public class testKaupActivity extends Activity  implements View.OnClickListener  {
+public class KaupActivity extends Activity  implements View.OnClickListener  {
     EditText etWeight, etHeight, etName;
     TextView resultCalc;
     Button btnCalc;
@@ -36,7 +36,7 @@ public class testKaupActivity extends Activity  implements View.OnClickListener 
     @Override
     public void onClick(View v) {
         //액티비시명, 메시지,
-        Toast tMsg = Toast.makeText(testKaupActivity.this, "토스트 연습",Toast.LENGTH_LONG);
+        Toast tMsg = Toast.makeText(KaupActivity.this, "토스트 연습",Toast.LENGTH_LONG);
         tMsg.show();
         name = etName.getText().toString();
         height = Double.parseDouble(etHeight.getText().toString());
@@ -47,7 +47,7 @@ public class testKaupActivity extends Activity  implements View.OnClickListener 
         */
 
         //getKaup
-        testKaupService service = new KaupServiceImpl();
+        KaupService service = new KaupServiceImpl();
         resultText = service.getKaup(weight, height);
 
         Log.d(resultText, "카우프 지수");

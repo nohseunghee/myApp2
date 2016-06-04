@@ -3,7 +3,7 @@ package com.hanbit.user.myapp2.Kaup;
 /**
  * Created by USER on 2016-06-04.
  */
-public class KaupServiceImpl implements testKaupService {
+public class KaupServiceImpl implements KaupService {
 
 
     @Override
