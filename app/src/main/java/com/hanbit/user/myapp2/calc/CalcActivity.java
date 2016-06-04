@@ -47,6 +47,7 @@ public class CalcActivity extends Activity implements View.OnClickListener{
 
     @Override
     public void onClick(View v) {
+        //
         if(v.getId() == R.id.btnMain){
             startActivity(new Intent(this, MainActivity.class));
         }else {
