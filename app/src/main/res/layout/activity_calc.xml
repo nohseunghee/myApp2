@@ -59,4 +59,10 @@
         android:textSize="30dp"
         android:textColor="#ff0000"
         android:layout_marginTop="20dp"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnMain"
+        android:text="메인이동"/>
 </LinearLayout>

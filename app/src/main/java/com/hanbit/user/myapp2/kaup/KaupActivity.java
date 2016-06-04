@@ -26,14 +26,12 @@ public class KaupActivity extends Activity  implements View.OnClickListener  {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_kaup);
 
-
         etWeight = (EditText)findViewById(R.id.weight);
         etHeight = (EditText)findViewById(R.id.height);
         etName = (EditText)findViewById(R.id.name);
         resultCalc = (TextView)findViewById(R.id.resultCalc);
-        btnCalc = (Button)findViewById(R.id.btnCalc);
-        btnCalc.setOnClickListener(this);
 
+        ((Button)findViewById(R.id.btnCalc)).setOnClickListener(this);
         ((Button)findViewById(R.id.btnMain)).setOnClickListener(this);
     }
 
