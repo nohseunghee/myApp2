@@ -1,4 +1,4 @@
-package com.hanbit.user.myapp2.testCalc;
+package com.hanbit.user.myapp2.calc;
 
 import android.app.Activity;
 import android.os.Bundle;

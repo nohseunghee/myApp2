@@ -6,8 +6,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-import com.hanbit.user.myapp2.testCalc.CalcActivity;
-import com.hanbit.user.myapp2.testKaup.KaupActivity;
+import com.hanbit.user.myapp2.calc.CalcActivity;
+import com.hanbit.user.myapp2.kaup.KaupActivity;
 import com.hanbit.user.myapp2.R;
 
 
