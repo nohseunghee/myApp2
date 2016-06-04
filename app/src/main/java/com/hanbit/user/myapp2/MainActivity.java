@@ -46,28 +46,10 @@ public class MainActivity extends Activity {
                 weight = Double.parseDouble(etWeight.getText().toString());
                 //Integer.parseInt(~~~~) :: 정수 casting
 
+                //getKaup
+                kaupService service = new kaupService();
+                resultText = service.getKaup(weight, height);
 
-                //공식
-                //몸무게를 키의 제곱으로 나눈후, 10000을 곱한 인덱스 값
-                //int idx = (int)(weight/(height * height)) * 10000;
-                int idx = (int)(weight/(height * height)) * 10000;
-
-
-                if(idx >= 30){ //비만
-                    resultText = "비만";
-                }else if(idx >= 24){ //과체중
-                    resultText = "과체중";
-                }else if(idx >= 20){ //정상
-                    resultText = "정상";
-                }else if(idx >= 15){ //저체중
-                    resultText = "저체중";
-                }else if(idx >= 13){ //마름
-                    resultText = "마름";
-                }else if(idx >= 10){ //영양실조
-                    resultText = "영양실조";
-                }else{//소모증
-                    resultText = "소모증";
-                }
                 resultCalc.setText(name+"님의 계산결과: " + resultText);
             }
         });
