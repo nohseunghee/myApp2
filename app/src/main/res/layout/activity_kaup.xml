@@ -38,6 +38,11 @@
         android:layout_height="wrap_content"
         android:id="@+id/btnCalc"
         android:text="계산하기"/>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnMain"
+        android:text="메인이동"/>
 
 
     <TextView
