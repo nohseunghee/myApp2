@@ -1,12 +1,14 @@
-package com.hanbit.user.myapp2;
+package com.hanbit.user.myapp2.Kaup;
 
 /**
  * Created by USER on 2016-06-04.
  */
 public class kaupService {
+    double weight, height;
     String result;
 
     public String  getKaup(double weight, double height){
+
         //공식 :: 몸무게를 키의 제곱으로 나눈후, 10000을 곱한 인덱스 값
         int idx = (int)(weight/(height * height)) * 10000;
 
