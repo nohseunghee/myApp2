@@ -9,6 +9,7 @@ import android.widget.Button;
 import com.hanbit.user.myapp2.calc.CalcActivity;
 import com.hanbit.user.myapp2.kaup.KaupActivity;
 import com.hanbit.user.myapp2.R;
+import com.hanbit.user.myapp2.login.LoginActivity;
 
 
 public class MainActivity extends Activity implements View.OnClickListener{
@@ -37,7 +38,7 @@ public class MainActivity extends Activity implements View.OnClickListener{
                 startActivity(new Intent(this, CalcActivity.class));
                 break;
             case R.id.btLogin:
-                startActivity(new Intent(this, KaupActivity.class));
+                startActivity(new Intent(this, LoginActivity.class));
                 break;
 
         }
