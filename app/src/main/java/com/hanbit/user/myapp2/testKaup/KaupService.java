@@ -1,4 +1,4 @@
-package com.hanbit.user.myapp2.Kaup;
+package com.hanbit.user.myapp2.testKaup;
 
 /**
  * Created by USER on 2016-06-04.

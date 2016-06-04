@@ -25,11 +25,11 @@
         </activity>
 
         <activity
-            android:name=".Kaup.KaupActivity"
+            android:name=".testKaup.KaupActivity"
             android:label="@string/title_activity_kaup"
             android:theme="@style/AppTheme.NoActionBar"></activity>
 
-        <activity android:name=".Calc.CalcActivity"
+        <activity android:name=".testCalc.CalcActivity"
             android:label="@string/title_activity_calc"
             android:theme="@style/AppTheme.NoActionBar">
 

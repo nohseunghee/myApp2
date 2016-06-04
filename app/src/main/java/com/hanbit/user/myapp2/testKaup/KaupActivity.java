@@ -1,4 +1,4 @@
-package com.hanbit.user.myapp2.Kaup;
+package com.hanbit.user.myapp2.testKaup;
 
 import android.app.Activity;
 import android.content.Intent;

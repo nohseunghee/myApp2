@@ -1,4 +1,4 @@
-package com.hanbit.user.myapp2.Calc;
+package com.hanbit.user.myapp2.testCalc;
 
 /**
  * Created by USER on 2016-06-04.
