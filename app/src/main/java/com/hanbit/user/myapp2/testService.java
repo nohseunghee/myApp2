@@ -3,7 +3,7 @@ package com.hanbit.user.myapp2;
 /**
  * Created by USER on 2016-06-04.
  */
-public class kaupService {
+public class testService {
     String result;
 
     public String  getKaup(double weight, double height){
