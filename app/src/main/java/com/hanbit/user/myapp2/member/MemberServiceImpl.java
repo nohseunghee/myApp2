@@ -1,13 +1,18 @@
 package com.hanbit.user.myapp2.member;
 
 import android.app.Activity;
+import android.content.Context;
 
 /**
  * Created by USER on 2016-06-11.
  */
 public class MemberServiceImpl extends Activity implements MemberService {
-    //MemberDAO dao = new MemberDAO(this.getApplicationContext());
     MemberDAO dao;
+
+    public MemberServiceImpl(Context context) {
+        this.dao = new MemberDAO(context);
+    }
+
 
 
     @Override

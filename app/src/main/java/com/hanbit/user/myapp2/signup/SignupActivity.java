@@ -45,12 +45,11 @@ public class SignupActivity extends Activity implements View.OnClickListener{
         member.setName(etName.getText().toString());
         member.setEmail(etEmail.getText().toString());
 
-        //MemberService service = new MemberServiceImpl(); //인스턴스(객체) 생성
-        //String msg = service.signup(member);
-        MemberDAO dao = new MemberDAO(this.getApplicationContext());
-        String msg = dao.signup(member);
+        MemberService service = new MemberServiceImpl(this.getApplicationContext()); //인스턴스(객체) 생성
+        String msg = service.signup(member);
+        //MemberDAO dao = new MemberDAO(this.getApplicationContext());
+        //String msg = dao.signup(member);
 
         textResult.setText("회원가입결과: "+msg);
-
     }
 }
