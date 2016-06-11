@@ -74,9 +74,7 @@ public class LoginActivity extends Activity implements View.OnClickListener{
         //MemberDAO dao = new MemberDAO(this.getApplicationContext());
         //member = dao.login(member);
 
-        //Log.i("DB 다녀온 결과 ID ", member.getId());
-        Log.i("DB 다녀온 결과 ID ", member.getName());
-
+        Log.i("DB 다녀온 결과 ID ", member.getId());
 
         if(member.getId() == ""){
             textResult.setText("로그인 실패");
