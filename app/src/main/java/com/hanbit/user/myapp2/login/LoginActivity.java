@@ -20,6 +20,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.provider.ContactsContract;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -36,6 +37,8 @@ import java.util.List;
 import com.hanbit.user.myapp2.R;
 import com.hanbit.user.myapp2.member.MemberBean;
 import com.hanbit.user.myapp2.member.MemberDAO;
+import com.hanbit.user.myapp2.member.MemberService;
+import com.hanbit.user.myapp2.member.MemberServiceImpl;
 
 import static android.Manifest.permission.READ_CONTACTS;
 
@@ -64,12 +67,25 @@ public class LoginActivity extends Activity implements View.OnClickListener{
         member.setId(etID.getText().toString());   //데이터 잠금
         member.setPw(etPW.getText().toString());
 
-        //MemberService service = new MemberServiceImpl(); //인스턴스(객체) 생성
-        //String msg = service.signup(member);
-        MemberDAO dao = new MemberDAO(this.getApplicationContext());
-        member = dao.login(member);
+        MemberService service = new MemberServiceImpl(this.getApplicationContext()); //인스턴스(객체) 생성
 
-        textResult.setText("로그인 결과: "+member.getName() + "님 환영합니다");
+
+        member = service.login(member);
+        //MemberDAO dao = new MemberDAO(this.getApplicationContext());
+        //member = dao.login(member);
+
+        //Log.i("DB 다녀온 결과 ID ", member.getId());
+        Log.i("DB 다녀온 결과 ID ", member.getName());
+
+
+        if(member.getId() == ""){
+            textResult.setText("로그인 실패");
+
+        }else{
+            textResult.setText("로그인 결과: "+member.getName() + "님 환영합니다");
+        }
+
+
 
     }
 }
