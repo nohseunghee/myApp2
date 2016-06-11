@@ -75,4 +75,11 @@
         android:text="전송"
         android:textSize="30dp"
         android:id="@+id/btnSignup"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="30dp"
+        android:text="회원가입결과: "
+        android:id="@+id/textResult"/>
 </LinearLayout>
