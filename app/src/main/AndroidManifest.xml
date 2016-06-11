@@ -17,26 +17,27 @@
             android:name=".main.MainActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar">
-
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".kaup.KaupActivity"
             android:label="@string/title_activity_kaup"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
-
-        <activity android:name=".calc.CalcActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".calc.CalcActivity"
             android:label="@string/title_activity_calc"
-            android:theme="@style/AppTheme.NoActionBar">
-
-        </activity>
+            android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity
             android:name=".login.LoginActivity"
-            android:label="@string/title_activity_login"></activity>
+            android:label="@string/title_activity_login" />
+        <activity
+            android:name=".signup.SignupActivity"
+            android:label="@string/title_activity_signup"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>
