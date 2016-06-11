@@ -9,6 +9,7 @@ public class MemberServiceImpl extends Activity implements MemberService {
     //MemberDAO dao = new MemberDAO(this.getApplicationContext());
     MemberDAO dao;
 
+
     @Override
     public String signup(MemberBean member) {//데이터 저장
         return dao.signup(member);

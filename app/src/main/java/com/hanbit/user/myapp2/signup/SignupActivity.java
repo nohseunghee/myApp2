@@ -38,20 +38,15 @@ public class SignupActivity extends Activity implements View.OnClickListener{
 
     @Override
     public void onClick(View v) {
-        String id = etID.getText().toString();
-        String pw = etPW.getText().toString();
-        String name = etName.getText().toString();
-        String email = etEmail.getText().toString();
 
         MemberBean member = new MemberBean(); //인스턴스(객체) 생성
-        member.setId(id);   //데이터 잠금
-        member.setPw(pw);
-        member.setName(name);
-        member.setEmail(email);
+        member.setId(etID.getText().toString());   //데이터 잠금
+        member.setPw(etPW.getText().toString());
+        member.setName(etName.getText().toString());
+        member.setEmail(etEmail.getText().toString());
 
         //MemberService service = new MemberServiceImpl(); //인스턴스(객체) 생성
         //String msg = service.signup(member);
-
         MemberDAO dao = new MemberDAO(this.getApplicationContext());
         String msg = dao.signup(member);
 
