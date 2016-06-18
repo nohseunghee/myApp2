@@ -6,6 +6,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -93,20 +94,49 @@ public class GroupActivity extends Activity implements View.OnClickListener{
                 cursor.close();
                 break;
             case R.id.btnSearch://조회
+                /*
+                    * 4. 추천방법❤❤
+                    if(TextUtils.isEmpty(value)){
+                    doSomething();
+                    }
+                    3. 세번째 방법
+                    if(value.length()==0){
+                    doSomething();
+                    }
+                    2. 두번째 방법
+                    if(“”.equals(value){
+                    doSomething();
+                    }
+
+                    1. 첫번째 방법
+                    if(value.equals(“”)){
+                    doSomething();
+                    }
+                * */
+                if(TextUtils.isEmpty(etName.getText().toString())){
+
+                    txtResult.setText("제대로 입력하기 바람");
+                    return ;
+                }
+
                 gbean.setName(etName.getText().toString());
                 gbean.setCnt(Integer.parseInt(etCnt.getText().toString()));
 
                 resultMsg = "조회됨";
                 db = ghelper.getReadableDatabase();
-                cursor = db.rawQuery("select * from girl_group where name='"+gbean.getName()+"' and num='"+gbean.getCnt()+"' ",null);
+                //cursor = db.rawQuery("select * from girl_group where name='"+gbean.getName()+"' and num='"+gbean.getCnt()+"' ",null);
+                cursor = db.rawQuery("select * from girl_group where name='"+gbean.getName()+"' ",null);
 
-                cursor.moveToNext();
-                //cursor.moveToFirst();
-                strId += String.valueOf(cursor.getInt(0));
-                strNames += cursor.getString(1);
-                strNumbers += String.valueOf(cursor.getInt(2));
+                if (cursor != null) {
+                    while (cursor.moveToNext()) {
+                        //cursor.moveToFirst();
+                        strId += String.valueOf(cursor.getInt(0));
+                        strNames += cursor.getString(1);
+                        strNumbers += String.valueOf(cursor.getInt(2));
+                    }
 
-                txtResult.setText(strNames);
+                    txtResult.setText(strNames);
+                }
                 cursor.close();
                 break;
             case R.id.btnInsert://입력
@@ -127,12 +157,15 @@ public class GroupActivity extends Activity implements View.OnClickListener{
 
                 resultMsg = "수정됨";
                 db = ghelper.getWritableDatabase();
-                db.execSQL("update girl_group set num='"+gbean.getCnt()+"' where _id='1' ");
+                db.execSQL("update girl_group set name='"+gbean.getName()+"' where _id='"+gbean.getCnt()+"' ");
                 break;
             case R.id.btnDel://삭제
+                gbean.setName(etName.getText().toString());
+                gbean.setCnt(Integer.parseInt(etCnt.getText().toString()));
+
                 resultMsg = "삭제됨";
                 db = ghelper.getWritableDatabase();
-                db.execSQL("delete from girl_group where _id = '10' ");
+                db.execSQL("delete from girl_group where _id = '"+gbean.getCnt()+"' ");
 
                 break;
         }
