@@ -11,6 +11,7 @@ import com.hanbit.user.myapp2.group.GroupActivity;
 import com.hanbit.user.myapp2.kaup.KaupActivity;
 import com.hanbit.user.myapp2.R;
 import com.hanbit.user.myapp2.login.LoginActivity;
+import com.hanbit.user.myapp2.movie.MovieActivity;
 import com.hanbit.user.myapp2.signup.SignupActivity;
 
 
@@ -27,6 +28,10 @@ public class MainActivity extends Activity implements View.OnClickListener{
         ((Button)findViewById(R.id.btLogin)).setOnClickListener(this);
         ((Button)findViewById(R.id.btnSignup)).setOnClickListener(this);
         ((Button)findViewById(R.id.btnGroup)).setOnClickListener(this);
+        ((Button)findViewById(R.id.btnMovie)).setOnClickListener(this);
+
+
+
     }
 
     @Override
@@ -50,6 +55,10 @@ public class MainActivity extends Activity implements View.OnClickListener{
             case R.id.btnGroup:
                 startActivity(new Intent(this, GroupActivity.class));
                 break;
+            case R.id.btnMovie:
+                startActivity(new Intent(this, MovieActivity.class));
+                break;
+
         }
     }
 }
