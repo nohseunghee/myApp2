@@ -30,14 +30,15 @@
         <activity
             android:name=".calc.CalcActivity"
             android:label="@string/title_activity_calc"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".login.LoginActivity"
             android:label="@string/title_activity_login" />
         <activity
             android:name=".signup.SignupActivity"
             android:label="@string/title_activity_signup"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".group.GroupActivity"></activity>
     </application>
 
 </manifest>

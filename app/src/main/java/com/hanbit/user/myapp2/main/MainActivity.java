@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.Button;
 
 import com.hanbit.user.myapp2.calc.CalcActivity;
+import com.hanbit.user.myapp2.group.GroupActivity;
 import com.hanbit.user.myapp2.kaup.KaupActivity;
 import com.hanbit.user.myapp2.R;
 import com.hanbit.user.myapp2.login.LoginActivity;
@@ -25,6 +26,7 @@ public class MainActivity extends Activity implements View.OnClickListener{
         ((Button)findViewById(R.id.btCalc)).setOnClickListener(this);
         ((Button)findViewById(R.id.btLogin)).setOnClickListener(this);
         ((Button)findViewById(R.id.btnSignup)).setOnClickListener(this);
+        ((Button)findViewById(R.id.btnGroup)).setOnClickListener(this);
     }
 
     @Override
@@ -45,7 +47,9 @@ public class MainActivity extends Activity implements View.OnClickListener{
             case R.id.btnSignup:
                 startActivity(new Intent(this, SignupActivity.class));
                 break;
-
+            case R.id.btnGroup:
+                startActivity(new Intent(this, GroupActivity.class));
+                break;
         }
     }
 }
