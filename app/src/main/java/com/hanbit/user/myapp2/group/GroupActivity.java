@@ -53,7 +53,7 @@ public class GroupActivity extends Activity implements View.OnClickListener{
         gbean.setCnt(Integer.parseInt(etCnt.getText().toString()));
 
         ghelper    = new GroupDBHelper(this);
-        db = ghelper.getWritableDatabase();
+
 
         //GroupService service = new GroupServiceImpl();
         /*
@@ -65,27 +65,35 @@ public class GroupActivity extends Activity implements View.OnClickListener{
                 ghelper.onUpgrade(db,1,2);
                 break;
             case R.id.btnCount:   //그룹수
-                resultMsg = "전체리스트";
+                resultMsg = "그룹수";
+                db = ghelper.getReadableDatabase();
                 db.rawQuery("select count(_id) from group   ",null);
                 break;
             case R.id.btnlist:  //리스트
-                resultMsg = "전체리스트";
-                db.rawQuery("select * from group where name='IOI'  ",null);
+                resultMsg = "리스트";
+                db = ghelper.getReadableDatabase();
+                db.rawQuery("select * from group ",null);
+                String strNames = "그룹이름:"+gbean.getName()+"----\r\n";
+                String strNumbers = "인원:"+gbean.getCnt()+"----\r\n";
                 break;
             case R.id.btnInsert://입력
                 resultMsg = "입력됨";
+                db = ghelper.getWritableDatabase();
                 db.execSQL("insert into group (name,num) values (IOI','20')");
                 break;
             case R.id.btnSearch://조회
                 resultMsg = "조회됨";
+                db = ghelper.getReadableDatabase();
                 db.rawQuery("select * from group where name='IOI' limit 10 ",null);
                 break;
             case R.id.btnMod://수정
                 resultMsg = "수정됨";
+                db = ghelper.getWritableDatabase();
                 db.execSQL("update group set name='ttt', num='333' ");
                 break;
             case R.id.btnDel://삭제
                 resultMsg = "삭제됨";
+                db = ghelper.getWritableDatabase();
                 db.execSQL("delete from group where _id = '1' ");
                 break;
         }
