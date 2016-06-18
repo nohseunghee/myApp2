@@ -8,6 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -18,12 +19,12 @@ import com.hanbit.user.myapp2.R;
 import com.hanbit.user.myapp2.main.MainActivity;
 
 public class GroupActivity extends Activity implements View.OnClickListener{
-    EditText etName, etCnt;
+    EditText etName, etCnt, etID;
     TextView txtResult;
     GroupDBHelper ghelper;
     SQLiteDatabase db;
 
-    public String TAG;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,7 +32,9 @@ public class GroupActivity extends Activity implements View.OnClickListener{
         setContentView(R.layout.activity_group);
         etName = (EditText)findViewById(R.id.etName);
         etCnt = (EditText)findViewById(R.id.etCnt);
+        etID = (EditText)findViewById(R.id.etID);
         txtResult = (TextView)findViewById(R.id.txtResult);
+
 
 
         ((Button)findViewById(R.id.btnInit)).setOnClickListener(this);
@@ -46,8 +49,6 @@ public class GroupActivity extends Activity implements View.OnClickListener{
 
     @Override
     public void onClick(View v) {
-
-
         if(v.getId() == R.id.btnMain){    //메인으로
             startActivity(new Intent(this, MainActivity.class));
             return;
@@ -61,7 +62,6 @@ public class GroupActivity extends Activity implements View.OnClickListener{
         String strId = "번호\r\n----\r\n";
         String strNames = "그룹이름\r\n----\r\n";
         String strNumbers = "인원\r\n----\r\n";
-
 
 
         switch(v.getId()) {
@@ -128,6 +128,8 @@ public class GroupActivity extends Activity implements View.OnClickListener{
                 cursor = db.rawQuery("select * from girl_group where name='"+gbean.getName()+"' ",null);
 
                 if (cursor != null) {
+                //cursor.getCount() == 0 일때 처리해주거나 null 처리해줄것
+
                     while (cursor.moveToNext()) {
                         //cursor.moveToFirst();
                         strId += String.valueOf(cursor.getInt(0));
@@ -152,27 +154,25 @@ public class GroupActivity extends Activity implements View.OnClickListener{
                 break;
 
             case R.id.btnMod://수정
+                gbean.setId(Integer.parseInt(etID.getText().toString()));
                 gbean.setName(etName.getText().toString());
                 gbean.setCnt(Integer.parseInt(etCnt.getText().toString()));
 
                 resultMsg = "수정됨";
                 db = ghelper.getWritableDatabase();
-                db.execSQL("update girl_group set name='"+gbean.getName()+"' where _id='"+gbean.getCnt()+"' ");
+                db.execSQL("update girl_group set name='"+gbean.getName()+"', num='"+gbean.getCnt()+"' where _id='"+gbean.getId()+"' ");
                 break;
             case R.id.btnDel://삭제
-                gbean.setName(etName.getText().toString());
-                gbean.setCnt(Integer.parseInt(etCnt.getText().toString()));
+                gbean.setId(Integer.parseInt(etID.getText().toString()));
 
                 resultMsg = "삭제됨";
                 db = ghelper.getWritableDatabase();
-                db.execSQL("delete from girl_group where _id = '"+gbean.getCnt()+"' ");
+                db.execSQL("delete from girl_group where _id = '"+gbean.getId()+"' ");
 
                 break;
         }
         db.close();
         Toast.makeText(getApplicationContext(),resultMsg, Toast.LENGTH_LONG).show();
         return;
-
-
     }
 }

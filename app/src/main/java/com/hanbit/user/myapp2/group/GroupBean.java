@@ -5,7 +5,15 @@ package com.hanbit.user.myapp2.group;
  */
 public class GroupBean {
     private String name;
-    private int cnt;
+    private int cnt, id;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public String getName() {
         return name;
